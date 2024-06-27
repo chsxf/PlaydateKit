@@ -289,6 +289,10 @@ public enum Graphics {
             if let error { throw Playdate.Error(humanReadableText: error) }
         }
 
+        public func getInfo(count: UnsafeMutablePointer<CInt>, cellsWide: UnsafeMutablePointer<CInt>) {
+            graphics.getBitmapTableInfo.unsafelyUnwrapped(pointer, count, cellsWide)
+        }
+        
         // MARK: Private
 
         private let pointer: OpaquePointer
